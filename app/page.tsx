@@ -1,7 +1,19 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import HowItWorks from "@/components/HowItWorks";
+import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-3xl font-bold">X Code</h1>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Services />
+        <HowItWorks />
+      </main>
+      <Footer />
+    </>
   );
 }

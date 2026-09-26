@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
+/* Dark mode ko class-based banate hain (default Tailwind media-query use karta hai) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   LIGHT MODE (default)
+   Ye values tab use hoti hain jab <html> pe .dark class nahi hoti
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --text-primary: #0B0E14;
+  --text-muted: #5A6072;
+  --border: #E5E7EB;
+  --accent: #4F6EF7;
+  --accent-hover: #3D5AE5;
+  --accent-fg: #FFFFFF;
 }
 
+/* ============================================
+   DARK MODE — jab <html> pe .dark class ho
+   Sirf ye variables badalte hain, baaki sab same
+   ============================================ */
+.dark {
+  --bg: #0B0E14;
+  --surface: #121620;
+  --text-primary: #F5F7FA;
+  --text-muted: #8B92A5;
+  --border: #1E2430;
+  --accent: #4F6EF7;
+  --accent-hover: #6B85FF;
+  --accent-fg: #FFFFFF;
+}
+
+/* ============================================
+   TAILWIND THEME
+   Yahan hum CSS variables ko Tailwind ke
+   utility classes se jodte hain (bg-bg, text-text-primary, etc.)
+   ============================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+
+  /* Status colors — sirf indicators ke liye, decoration ke liye NAHI */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-critical: #EF4444;
+
+  /* Font */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radius scale — har rounded corner inhi mein se ek use karega */
+  --radius-sm: 0.375rem;  /* 6px  — chhote buttons, badges */
+  --radius-md: 0.5rem;    /* 8px  — inputs, small cards */
+  --radius-lg: 0.75rem;   /* 12px — main cards, buttons */
+  --radius-xl: 1rem;      /* 16px — big sections */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Smooth transitions jab theme change ho */
+* {
+  border-color: var(--border);
+}
+
+html {
+  transition: background-color 200ms ease, color 200ms ease;
 }
