@@ -18,7 +18,9 @@ export default function DashboardPage() {
           Create your first project to get started with X Code.
         </p>
         <div className="mt-6 flex justify-center">
-          <Button variant="primary">Create Your First Project</Button>
+          <Button href="/dashboard/projects/new" variant="primary">
+            Create Your First Project
+          </Button>
         </div>
       </div>
     </>
