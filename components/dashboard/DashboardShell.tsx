@@ -33,11 +33,18 @@ export default function DashboardShell({
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
+  // ============================================
+  // EARLY RETURN — Editor route pe shell skip karo
+  // ============================================
+  const isEditorRoute = pathname?.includes("/editor/");
+  if (isEditorRoute) {
+    return <>{children}</>;
+  }
+
   const navLinks = [
     { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { label: "Projects", href: "/dashboard/projects", icon: FolderKanban },
     { label: "Settings", href: "/dashboard/settings", icon: Settings },
-    // Admin link sirf admins ko dikhega
     ...(isAdmin
       ? [{ label: "Admin", href: "/admin", icon: Shield }]
       : []),
@@ -125,7 +132,7 @@ export default function DashboardShell({
         {sidebarContent}
       </aside>
 
-      {/* Mobile sidebar — slide-out drawer */}
+      {/* Mobile sidebar */}
       {isMobileOpen && (
         <>
           <div

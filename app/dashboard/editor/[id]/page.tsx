@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import EditorLayout from "@/components/editor/EditorLayout";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function EditorPage({
   params,
 }: {
@@ -14,9 +17,7 @@ export default async function EditorPage({
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
-    notFound();
-  }
+  if (!user) notFound();
 
   const { data: project, error } = await supabase
     .from("projects")
@@ -25,9 +26,7 @@ export default async function EditorPage({
     .eq("user_id", user.id)
     .single();
 
-  if (error || !project) {
-    notFound();
-  }
+  if (error || !project) notFound();
 
   return (
     <EditorLayout

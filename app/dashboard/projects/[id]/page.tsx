@@ -82,7 +82,7 @@ export default async function ProjectDetailPage({
             <p className="mt-2 max-w-2xl text-text-muted">{project.idea}</p>
           </div>
           <Link
-            href={`/dashboard/editor/${project.id}`}
+            href={`/editor/${project.id}`}
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-fg transition-colors hover:bg-accent-hover"
           >
             <Pencil size={14} />
@@ -323,7 +323,7 @@ export default async function ProjectDetailPage({
               Open the visual editor and start designing your website.
             </p>
             <div className="mt-4 flex justify-center">
-              <Link href={`/dashboard/editor/${project.id}`}>
+              <Link href={`/editor/${project.id}`}>
                 <Button variant="primary">
                   <Pencil size={16} />
                   Open in Editor
