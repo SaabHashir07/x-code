@@ -1412,7 +1412,7 @@ function ComponentPreview({
         <div className="mt-4 grid grid-cols-3 gap-3">
           {props.items?.map((t: any, i: number) => (
             <div key={i} className="border p-3" style={{ borderColor: `${theme.text}20`, borderRadius: rpx }}>
-              <p className="text-xs italic" style={{ color: theme.text, opacity: 0.8 }}>"{t.quote}"</p>
+              <p className="text-xs italic" style={{ color: theme.text, opacity: 0.8 }}>&quot;{t.quote}&quot;</p>
               <p className="mt-2 text-[10px] font-semibold" style={{ color: theme.primary }}>{t.author}</p>
               <p className="text-[10px]" style={{ color: theme.text, opacity: 0.5 }}>{t.role}</p>
             </div>

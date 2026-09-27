@@ -9,7 +9,6 @@ import {
   Activity,
   ArrowLeft,
   Menu,
-  X,
   Sun,
   Moon,
   Shield,

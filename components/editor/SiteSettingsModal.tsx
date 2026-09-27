@@ -38,7 +38,7 @@ export default function SiteSettingsModal({ settings, onSave, onClose }: Props) 
               Site Settings
             </h3>
             <p className="mt-1 text-sm text-text-muted">
-              Configure your website's identity
+              Configure your website&apos;s identity
             </p>
           </div>
           <button

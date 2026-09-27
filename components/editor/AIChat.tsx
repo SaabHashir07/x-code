@@ -87,7 +87,7 @@ export default function AIChat({ onApply }: Props) {
                 AI Assistant
               </div>
               <p className="mt-1.5 text-xs text-text-muted">
-                Tell me what to change. I'll edit your design.
+                Tell me what to change. I&apos;ll edit your design.
               </p>
             </div>
 

@@ -4,3 +4,17 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Supabase proxy — ISP DNS block bypass karne ke liye
+[[redirects]]
+  from = "/supabase/*"
+  to = "https://ludyqlouajncrzqkqjgk.supabase.co/:splat"
+  status = 200
+  force = true
+
+# Alt proxy path (kuch env vars isko /api/proxy se reference karte hain)
+[[redirects]]
+  from = "/api/proxy/*"
+  to = "https://ludyqlouajncrzqkqjgk.supabase.co/:splat"
+  status = 200
+  force = true
